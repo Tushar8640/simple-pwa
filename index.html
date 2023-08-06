@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#2196F3" />
+    <link rel="manifest" href="/manifest.json" />
+    <title>PWA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+      }
+      img {
+        text-align: center;
+        width: 70%;
+        margin: auto;
+      }
+      div {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        justify-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 style="text-align: center">Hello Nature</h1>
+    <div>
+      <img src="/nature.webp" alt="" />
+    </div>
+
+    <script>
+      if ("serviceWorker" in navigator) {
+        // Register a service worker hosted at the root of the
+        // site using the default scope.
+        navigator.serviceWorker.register("/sw.js").then(
+          (registration) => {
+            console.log("Service worker registration succeeded:", registration);
+          },
+          (error) => {
+            console.error(`Service worker registration failed: ${error}`);
+          }
+        );
+      } else {
+        console.error("Service workers are not supported.");
+      }
+    </script>
+  </body>
+</html>
