@@ -1,24 +1,23 @@
 {
-  "short_name": "Weather",
-  "name": "Weather: Do I need an umbrella?",
+  "short_name": "Contacts",
+  "name": "Simple Contacts",
   "icons": [
     {
-      "src": "/icon.svg",
-      "type": "image/svg+xml",
+      "src": "/icon-512x512.png",
+      "type": "image/png",
       "sizes": "512x512"
     },
     {
-      "src": "/icon.svg",
-      "type": "image/svg+xml",
+      "src": "/icon-192x192.png",
+      "type": "image/png",
       "sizes": "192x192"
     }
   ],
   "id": "/?source=pwa",
-  "start_url": "/?source=pwa",
-  "background_color": "#3367D6",
+  "start_url": "/index.html",
+  "background_color": "#7b06cf",
   "display": "standalone",
-  "scope": "/",
-  "theme_color": "#3367D6",
-
-  "description": "Weather forecast information"
+  "scope": "./",
+  "theme_color": "#2c2825",
+  "description": "A simple contact app"
 }

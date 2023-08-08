@@ -28,20 +28,73 @@
         justify-items: center;
       }
     </style>
+    <!-- stylesheet -->
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
-    <h1 style="text-align: center">Hello Nature</h1>
-    <div>
-      <img src="/nature.webp" alt="" />
-    </div>
+    <main class="container mx-auto max-w-5xl p-3">
+      <section class="p-6 bg-gray-100 text-gray-900">
+        <div class="space-y-2 col-span-full lg:col-span-1">
+          <p class="font-medium">Add Contacts</p>
+        </div>
+        <form
+          novalidate=""
+          action=""
+          class="container flex flex-col mx-auto space-y-12"
+        >
+          <fieldset
+            class="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm bg-gray-50"
+          >
+            <div class="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
+              <div class="col-span-full sm:col-span-3 flex items-center">
+                <label for="name" class="text-sm mr-2">Name</label>
+                <input
+                  id="name"
+                  type="text"
+                  placeholder="name"
+                  class="w-full rounded-md focus:ring border-gray-700 text-gray-900 px-3 py-2"
+                />
+              </div>
+              <div class="col-span-full sm:col-span-3 flex items-center">
+                <label for="number" class="text-sm mr-2">Number</label>
+                <input
+                  id="number"
+                  type="text"
+                  placeholder="01.."
+                  class="w-full rounded-md focus:ring border-gray-300 text-gray-90 px-3 py-2"
+                />
+              </div>
 
+              <div class="col-span-full">
+                <div class="flex items-center space-x-2">
+                  <button
+                    id="saveButton"
+                    type="button"
+                    class="px-4 py-1 border rounded-md hover:bg-purple-500 hover:text-white border-gray-800"
+                  >
+                    Save
+                  </button>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+      </section>
+
+      <section>
+        <div class="space-y-2 col-span-full lg:col-span-1">
+          <p class="font-medium py-2">All Contacts</p>
+        </div>
+        <ul id="contactList" class="space-y-4"></ul>
+      </section>
+    </main>
     <script>
       if ("serviceWorker" in navigator) {
         // Register a service worker hosted at the root of the
         // site using the default scope.
         navigator.serviceWorker.register("/sw.js").then(
           (registration) => {
-            console.log("Service worker registration succeeded:", registration);
+            console.log("installing");
           },
           (error) => {
             console.error(`Service worker registration failed: ${error}`);
@@ -51,5 +104,8 @@
         console.error("Service workers are not supported.");
       }
     </script>
+    <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore-compat.js"></script>
+    <script src="/db.js"></script>
   </body>
 </html>
